@@ -188,7 +188,7 @@ def requires_grad_for_gradient_checkpointing(model):
 
     # Add post forward hook
     def requires_grad_post_hook(module, input, output):
-        output.requires_grad_(True)
+        # output.requires_grad_(True)
     pass
 
     def requires_grad_pre_hook(module, input):
