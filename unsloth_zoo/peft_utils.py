@@ -247,8 +247,8 @@ def requires_grad_for_gradient_checkpointing(model):
         # Find all input embeddings and just set them all as a fallback!
         # Add other hooks first
         register_other_hooks(
-            # "requires_grad_post_hook",
-            # "requires_grad_post_hook",
+            "requires_grad_post_hook",
+            "requires_grad_post_hook",
             module,
             "_forward_hooks",
         )
@@ -268,12 +268,12 @@ def requires_grad_for_gradient_checkpointing(model):
             module = module.get_input_embeddings()
             # Add other hooks first
             register_other_hooks(
-                # "requires_grad_post_hook",
-                # "requires_grad_post_hook",
+                "requires_grad_post_hook",
+                "requires_grad_post_hook",
                 module,
                 "_forward_hooks",
             )
-            # module.register_forward_hook(requires_grad_post_hook)
+            module.register_forward_hook(requires_grad_post_hook)
             still_need_patching = False
         except:
             # Not Implemented probably?
