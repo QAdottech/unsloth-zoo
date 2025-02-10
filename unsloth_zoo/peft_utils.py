@@ -190,6 +190,7 @@ def requires_grad_for_gradient_checkpointing(model):
     def requires_grad_post_hook(module, input, output):
         print("Disabled due to bugs")
         # output.requires_grad_(True)
+        return
     pass
 
     def requires_grad_pre_hook(module, input):
